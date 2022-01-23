@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Dream Travels</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="icon" href="icon.png">
+</head>
+<style>
+	.teal{
+		background-color: #009688;
+	}
+	.navbar-brand{
+		padding-left: 180px;
+		font-weight: 400;
+		font-size: 29px !important;
+	}
+	.navbar-nav{
+		padding-right: 180px;
+	}
+	.nav-link{
+		color: white !important;
+		margin-right: 20px;
+	}
+	img{
+		height: 72.5vh;
+		width: 75%;
+	}
+	.btn{
+		background-color: #009688 !important;
+		color: white !important;
+		padding: 15px 20px 15px 20px !important;
+		border-radius: none !important;
+		box-shadow: 2px 2px 5px #888888;
+		transition: 1s;
+	}
+	.btn:hover{
+		transform: scale(1.2);
+	}
+	p{
+		text-align: left;
+		padding: 20px;
+		color: white;
+	}
+	.carousel-caption{
+		position: absolute;
+		top: 20%;
+		left: 15%;
+		z-index: 20;
+		color: white;
+		text-shadow: 0 4px 4px rgba(0, 0, 0, 0.6);
+		cursor: default;
+	}
+	input[type=text] {
+		width: 40%;
+		padding: 0;
+		margin-bottom: 50px;
+		margin: 0 0 20px 0;
+		box-sizing: border-box;
+		border: 1px solid #555;
+		outline: none;
+		background-image: url('search.png');
+		background-position: 15px 17.5px; 
+		background-repeat: no-repeat;
+		padding: 12px 20px 12px 40px;
+		border-radius: 100px;
+		box-shadow: 0 4px 4px rgba(0, 0, 0, 0.6);
+		font-size: 16px;
+		transition: width 1s ease-in-out;
+		box-shadow: 0 4px 4px rgba(0, 0, 0, 0.6);
+	}
+
+	input[type=text]:focus {
+	  background-color: whitesmoke;
+	  border-color: black;
+	  width: 90%;
+	}
+	.contact-inputs::placeholder{
+		font-size: 16px;
+		color: #cacaca;
+	}
+	.search_label{
+		font-weight: 450;
+		font-size: 2.92rem;
+		align-content: center;
+		left: 30%;
+		color: white;
+		line-height: 110px;
+		margin: 1rem 0 1rem 0;;
+		text-shadow: 0 4px 4px rgba(0, 0, 0, 0.6);
+		cursor: default;
+	}
+	.card1{
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		border-radius: 20px !important;
+	}
+	.card1:hover{
+	  transform:scale(1.1);
+	  z-index: 100;
+	}
+	.popular{
+		margin-top: 40px;
+		margin-bottom: 20px;
+		padding-top: 20px;
+	}
+	.icon-color{
+		color: #009678 !important;
+	}
+	.back{
+		background-color: #e9e7e7;
+		padding-top: 20px;
+		padding-bottom: 50px;
+	}
+	span{
+		color: #009688;
+		margin-right: 5px;
+
+	}
+	.pop-loc{
+		float: left;
+		margin: 25px 12.5px 25px 12.5px;
+		height: 275px !important;
+	}
+	.card{
+		border-radius: 50px;
+		transition:.3s;
+		cursor: default;
+		z-index: 10;
+		margin-top: 40px;
+	}
+	.social-media{
+		color:white; 
+		margin-top: 10px; 
+		margin-bottom:10px; 
+		cursor: default;
+	}
+	.photo-gallery{
+		background-color: white;
+		color: black;
+		cursor: default;
+	}
+	.row{
+		margin: 1px 1px 1px 1px;
+	}
+	.Contact-Us{
+		width: 45% !important;
+	}
+	.Contact-inputs{
+		width: 100% !important;
+		border-top: none !important;
+		border-bottom: solid ghostwhite; !important;
+		border-right: none !important;
+		border-left: none !important;
+		transition: none !important;
+		background-image: none !important;
+		border-radius: 0px !important;
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) !important;
+		border-color: rgb(165, 165, 165) !important;
+		background-color: whitesmoke !important;
+	}
+	.Contact-inputs:focus{
+		background-color: whitesmoke !important;
+	}
+	.contact-label{
+		padding-left: 40px;
+	}
+	.Photo-gallery{
+		transition: 1s;
+	}
+	.Photo-gallery:hover{
+		transform: scale(1.2);
+	}
+</style>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top teal" id="navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Dream Travels</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#carouselInterval">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#search_area">Search</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#popular_places">Popular Places</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#Photo-gallery">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact-us">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div  id="carouselInterval" >
+	<div class="carousel slide" data-bs-ride="carousel">
+	  <div class="carousel-inner">
+	    <div class="carousel-item active" data-bs-interval="5000">
+	      <img src="image1.jpg" class="d-block w-100" alt="...">
+	      <div class="carousel-caption text-center">
+	      	<h1>We always work in budget</h1>
+	      	<p class="text-center">Don't worry about money</p>
+	      	<button class="btn" style="border-radius: 7.5px;">Learn More</button>
+	      </div>
+	    </div>
+	    <div class="carousel-item" data-bs-interval="5000">
+	      <img src="image2.jpg" class="d-block w-100" alt="...">
+	      <div class="carousel-caption text-center">
+	      	<h1>Group and Individual Gateways</h1>
+	      	<p class="text-center">Tell us about your Dream Destination.</p>
+	      	<button class="btn" style="border-radius: 7.5px;">Learn More</button>
+	      </div>
+	    </div>
+	    <div class="carousel-item" data-bs-interval="5000">
+	      <img src="image3.jpg" class="d-block w-100" alt="...">
+	      <div class="carousel-caption text-center">
+	      	<h1>Take your Dream Vacation</h1>
+	      	<p class="text-center">We are There for You</p>
+	      	<button class="btn" style="border-radius: 7.5px;">Learn More</button>
+	      </div>
+	    </div>
+	  </div>
+	  <button class="carousel-control-prev" type="button" data-bs-target="#carouselInterval" data-bs-slide="prev">
+	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	    <span class="visually-hidden">Previous</span>
+	  </button>
+	  <button class="carousel-control-next" type="button" data-bs-target="#carouselInterval" data-bs-slide="next">
+	    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+	    <span class="visually-hidden">Next</span>
+	  </button>
+	</div>
+</div>
+<div id="search_area">
+	<div class="container-fluid teal">
+		<div class="d-flex justify-content-center">
+				<h3 class="search_label">Search Destination</h3>	
+		</div>
+		<div class="d-flex justify-content-center input-field">
+			<input type="text" id="search" name="fname" placeholder="Goa, Spiti Valley">
+		</div>
+	</div>
+</div>
+<div class="container-fluid back">
+      <div class="container">
+    <div class="row d-flex justify-content-center space">
+        <div class="col-md-4 col-sm-12 col-12">
+            <div class="card pb-5 mb-4 text-center card1">
+                <div class="card-block">
+                <i class="bi bi-geo-alt-fill"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="120" fill="currentColor" class="bi bi-geo-alt-fill icon-color" viewBox="0 0 16 16">
+  	<path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+		</svg>
+                    <h2 class="card-title">Pick Where</h2>
+                    <h6 class="card-title">Tell Us Your Location</h6>
+                </div>
+                </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-12">
+            <div class="card text-center pb-5 mb-4 card1">
+                <div class="card-block">
+                <i class="bi bi-shop icon1"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="120" fill="currentColor" class="bi bi-shop icon-color" viewBox="0 0 16 16">
+  <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z"/>
+	</svg>
+                    <h2 class="card-title">Travel Shop</h2>
+                    <h6 class="card-title">Select your Dream Destination</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-12">
+            <div class="card text-center pb-5 mb-4 card1">
+                <div class="card-block">
+                <i class="bi bi-cash icon1"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="120" fill="currentColor" class="bi bi-cash icon-color" viewBox="0 0 16 16">
+  <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
+  <path d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2H3z"/>
+	</svg>
+                    <h2 class="card-title">Fly Cheap</h2>
+                    <h6 class="card-title">Select Trip According to Your Budget</h6>
+                </div>
+               
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" id="popular_places">
+	<h3 align="center" style="margin-left: 0px; margin-top:50px; cursor: default;"><font color="#009688">Popular</font>	locations</h3>
+	<div class="card card1 pop-loc" style="width:405px">
+	    <div class="card-body">
+	      <p class="card-text"><font color="black">On your next trip to South East Asia skip the touristy Thailand and head to Vietnam instead. From the Marble Mountains in Danang to the azure waters of Nha Trag, from the backwaters of the Mekong Delta to the hustle bustle of Hanoi, the country has something for everyone. Don’t miss going to Ho Chi Minh City for its colonial architecture, exquisite cuisine and café culture.</p></font>
+	    </div>
+  	</div>
+  	<div class="card card1 pop-loc" style="width:405px">
+	    <div class="card-body">
+	      <p class="card-text"><font color="black">Another country with numerous islands to explore is Indonesia. If you have time to explore only one island, let it be Bali. Explore Ubud, the cultural centre of Bali or go for a sunrise trek to Mount Agung (the highest point on the island) or Mount Batur, which is an active volcano set in a huge crater. You could also head to the beaches and go for dolphin watching and enjoy at Lovina.</p></font>
+	    </div>
+  	</div>
+  	<div class="card card1 pop-loc" style="width:405px">
+	    <div class="card-body">
+	      <p class="card-text"><font color="black">Straddling Europe and Asia, Turkey has been on the list of top 10 countries in the world for years. So if you have yet to visit this East-meets-West gem, let this be the year that you do! Istanbul itself has plenty of things to keep you occupied – the Blue Mosque, Hagia Sophia, Grand Bazaar and a cruise down the Bosphorus. Make sure you visit the quirky cave dwellings of Cappadocia.</p></font>
+	    </div>
+  	</div>
+
+  	<button class="btn" style="margin-left: 540px; margin-bottom: 50px; margin-top: 20px; border-radius: 10px;">CONTACT FOR BOOKING</button>
+</div>
+<div class="container-fluid social-media" style="background-color:#009688	;">
+	<h2 style="padding-top: 50px; padding-bottom: 10px;" align="center">Follow Your Dream</h2>
+	<h6 style="padding-bottom: 10px;" align="center">Follow Us on Social Media</h6>
+	<h6 style="text-decoration: none; padding-bottom: 20;" align="center"><font color="white" size="35"><i class="fa fa-facebook" style="padding-right: 30px;"></i><i class="fa fa-twitter" style="padding-right: 30px;"></i><i class="fa fa-linkedin" style="padding-right: 30px;"></i><i class="fa fa-whatsapp" style="padding-right: 30px;"></i><i class="fa fa-instagram" style="padding-right: 30px;"></i></font></h6>
+</div>
+<div class="container-fluid photo-gallery" id="Photo-gallery">
+	<h3 style="padding-top: 35px; padding-bottom:10px;" align="center">Photo <font color="#009688">Gallery</font></h3>
+	<div class="row">
+		<div class="container col-sm Photo-gallery" style="padding-bottom: 25px; margin-left: 50px !important;">
+		  <div class="card img-fluid" style="width:80%; height:250px; border-radius: 5px;">
+		    <img class="card-img-top" src="gallery_img1.jpg" alt="Card image" style="width:100% height:100%;">
+		  </div>
+		</div>
+		<div class="container col-sm Photo-gallery" style="padding-bottom: 25px;">
+		  <div class="card img-fluid" style="width:80%; height:250px; border-radius: 5px;">
+		    <img class="card-img-top" src="gallery_img2.jpg" alt="Card image" style="width:100% height:100%;">
+		  </div>
+		</div>
+		<div class="container col-sm Photo-gallery" style="padding-bottom: 25px;">
+		  <div class="card img-fluid" style="width:80%; height:250px; border-radius: 5px;">
+		    <img class="card-img-top" src="gallery_img3.jpg" alt="Card image" style="width:100% height:100%;">
+		  </div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="container col-sm Photo-gallery" style="padding-bottom: 25px; margin-left: 50px !important;	">
+		  <div class="card img-fluid" style="width:80%; height:250px; border-radius: 5px;">
+		    <img class="card-img-top" src="gallery_img4.jpg" alt="Card image" style="width:100% height:100%;">
+		  </div>
+		</div>
+		<div class="container col-sm Photo-gallery" style="padding-bottom: 25px;">
+		  <div class="card img-fluid" style="width:80%; height:250px; border-radius: 5px;">
+		    <img class="card-img-top" src="gallery_img5.jpg" alt="Card image" style="width:100% height:100%;">
+		  </div>
+		</div>
+		<div class="container col-sm Photo-gallery" style="padding-bottom: 25px;">
+		  <div class="card img-fluid" style="width:80%; height:250px; border-radius: 5px;">
+		    <img class="card-img-top" src="gallery_img6.jpg" alt="Card image" style="width:100% height:100%;">
+		  </div>
+		</div>
+	</div>
+</div>
+<div class="container" style="color:white; background-color: white;" id="contact-us">
+	<div class="row">
+		<div class="card Contact-Us col" style="background-color:#009688; border-radius:5px !important; width: 50%; margin: 20px 20px 0px 20px; height:315px">
+			<h1 style="margin-top: 50px;" align="center"><font color="white" size="30"><i class="fa fa-envelope"></i></font></h1>
+			<h3 style="margin-top: 30px;" align="center">Contact Us For booking</h3>
+			<h5 style="margin-top: 30px;" align="center">Hurry Up!! Your Dream Destination is Waiting!</h5>
+		</div>
+		<div class="card Contact-Us col" style="background-color:white; border-radius:5px !important; width: 50%; margin: 20px 20px 0px 20px; height:315px">
+			<h1 class="display-4" style="border-bottom: solid black; border-right: none; border-left: none; border-top: none;color: black; padding-top: 25px; padding-bottom: 25px;" align="center">Location</h1>
+			<p style="border-bottom: solid whitesmoke; border-right: none; border-left: none; border-top: none;color: black; padding: 0px 225px 10px 225px;">Dream Travels</p>
+			<p style="border-bottom: solid whitesmoke; border-right: none; border-left: none; border-top: none;color: black; padding: 0px 225px 10px 225px;">266/24,sec-3</p>
+			<p style="border-bottom: none; border-right: none; border-left: none; border-top: none;color: black; padding: 10px 225px 10px 225px;">Vidhyanadhar Nagar, Jaipur</p>
+		</div>
+	</div>
+	<div class="card Contact-Us" style="background-color:whitesmoke; border-radius:5px !important; width: 96.9% !important; margin: 20px 20px 20px 20px; height: 520px; ">
+		<h1 class="display-4" align="center"><font color="black">Contact Us</font></h1>
+		<form>
+		  <label class="contact-label" for="name" style="color:Black;">Name</label>
+		  <input class="Contact-inputs" type="text" id="name" name="Name" placeholder="Name">
+		  <label class="contact-label" for="email" style="color:Black;">Email</label>
+		  <input class="Contact-inputs" type="text" id="email" name="email" placeholder="Email">
+		  <label class="contact-label" for="phone" style="color:Black;">Phone No.</label>
+		  <input class="Contact-inputs" type="text" id="phone" name="phone" placeholder="Phone No.">
+		  <label class="contact-label" for="message" style="color:Black;">Message</label>
+		  <input class="Contact-inputs" type="text" id="message" name="message" placeholder="Message">
+		</form>
+		<button class="btn">Submit</button>
+	</div>
+</div>
+</body>
+</html>
